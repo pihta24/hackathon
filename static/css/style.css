@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: 'Exo 2', sans-serif;
+
+    color: #ffffff;
+    line-height: 1.6;
+    background: url("../images/fon_3.jpg") repeat;
+    background-size: auto;
+}
+
+*,
+*before,
+*after {
+    box-sizing: border-box;
+}
+/* Header */
+.header {
+    text-align: center;
+    margin: 2%;
+    font-size: 5vmax;
+}
+
+/* Button */
+.button {
+    display: inline-block;
+    box-shadow: white 0 0 0;
+    vertical-align: top;
+    padding: 1vw 1.5vw;
+    margin-left: 80vw;
+    margin-bottom: 2vh;
+    text-decoration: none;
+    color: white;
+    opacity: .4;
+
+    font-size: 1.4vw;
+    font-weight: bold;
+    background: rgb(220, 20, 60);
+    text-transform: uppercase;
+}
+.button:hover {
+    opacity: 1;
+    transition: 0.4s;
+}
+
+/* ScrollSpy */
+.scrollspy-example {
+    box-shadow: 0 0 2vh 1vh rgb(20, 20, 20);
+    margin-left: 10%;
+    margin-right: 10%;
+    position: absolute;
+    width: 80%;
+    height: 90vh;
+
+    background: rgb(55, 55, 55);
+    font-size: 1.5vmax;
+}
+
+/* Card */
+.card{
+    margin-left: 5%;
+    margin-right: 5%;
+    box-shadow: 0 0 2vh 1vh rgb(20, 20, 20);
+}
+.card-from-who {
+    text-align: right;
+    font-size: 1.5vmax;
+    padding-top: 1%;
+    padding-right: 2%;
+    color: rgb(220, 20, 60);
+}
+.card-header {
+    text-align: center;
+    font-size: 4vmax;
+    font-weight: bold;
+}
+.card-body{
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 2.5%;
+
+    text-align: left;
+    font-size: 2vmax;
+    padding-bottom: 2%;
+}
+
+

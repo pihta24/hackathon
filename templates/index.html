@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Новости</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap" rel="stylesheet">
+	{% load static %}
+	<link rel="stylesheet"
+	      href={% static "css/style.css" %}>
+	<script src={% static "node_modules/jquery/dist/jquery.js" %}></script>
+	<link rel="preconnect"
+	      href="https://fonts.gstatic.com">
+</head>
+<body>
+<header>
+	<div class="header">
+		Новостной блок школы 1502 "Энергия"
+	</div>
+</header>
+<a class="button" href="create">
+	Создать новость
+</a>
+<div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" id="scrollspy-example" class="" tabindex="0">
+
+</div>
+<script>
+    $.getJSON("api/news", (data) => {
+        $.each(data, (key, val) => {
+            document.getElementById("scrollspy-example").innerHTML += "<p>" +
+                `<div class='card' onclick='window.location=${val['id']}'>` +
+                "<div class='card-from-who'>" +
+                `${val['sended_from']}` +
+                "</div>" +
+                "<div class='card-header'>" +
+                `${val['head']}` +
+                "</div>" +
+                "<div class='card-body''>" +
+                `${val['short_text']}` +
+                "</div>" +
+                "</div>"
+        })
+    })
+</script>
+</body>
+</html>

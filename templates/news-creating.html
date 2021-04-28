@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Создать новость</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap" rel="stylesheet">
+	{% load static %}
+	<link rel="stylesheet"
+	      href={% static "css/text_c.css"%}>
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com">
+	<script src={% static "node_modules/ckeditor4/ckeditor.js"%}></script>
+	<script src={% static "node_modules/jquery/dist/jquery.js"%}></script>
+	<script src={% static "node_modules/sweetalert/dist/sweetalert.min.js"%}></script>
+</head>
+<body>
+<a class="but" onclick="send()">
+    Отправить новость
+</a>
+<script>
+	function tolist() {
+	    let head = document.getElementById("head").textContent;
+		let text = CKEDITOR.instances.editor.getData();
+		window.location = "create?select=1&head=" + head + "&text=" + encodeURIComponent(text)
+    }
+
+    function send() {
+	    $.post({url: "api/news",
+		    data: {"text": CKEDITOR.instances.editor.getData(),
+		        "head": document.getElementById("head").value,
+			    "reciver": document.getElementById("reciver").value},
+	    headers: {"X-CSRFToken": getCookie('csrftoken')}})
+	    .done(() => {swal("Good job!", "Новость добавлена!", "success");})
+	    .fail(() => {swal("Oops", "Что то пошло не так!", "error")})
+    }
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+</script>
+<div class="txt">
+    <textarea placeholder="Введите заголовок новости" id="head"></textarea>
+</div>
+<div class="txt">
+	<textarea placeholder="(Временно) получатель(по роли: roll:<roll_id>, по id: id:<id получателя(для ученика yandex_id, для учителя klass_ruk_id)>)" id="reciver"></textarea>
+</div>
+<div id="editor" class="editor">
+    <p>Вводите</p>
+</div>
+<b class="q" >
+    <script class="a">
+        CKEDITOR.replace( 'editor', {
+            contentsCss: 'https://fonts.googleapis.com/css2?family=Exo+2&display=swap',
+            font_names: 'Exo 2; sans-serif',
+            heights: '50%',
+            marginLeft: '10%'
+        });
+        CKEDITOR.addCss('.cke_editable { cursor: text; background-color: rgb(55, 55, 55); color: rgb(255, 255, 255);' +
+            ' font-family: \'Exo 2\', sans-serif; src: \'https://fonts.google.com/specimen/Exo+2#standard-styles\';} ')
+        CKEDITOR.on('instanceReady', function( ev ) {
+            ev.editor.dataProcessor.htmlFilter.addRules({
+                elements: {
+                    p: function (e) { e.attributes.style = 'font-size:' + "1.5vw" + '; font-family:' + "Exo 2" + ';'; }
+                }
+            });
+        });
+    </script>
+</b>
+</body>
+</html>

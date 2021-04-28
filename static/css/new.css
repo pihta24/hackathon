@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    font-family: 'Exo 2', sans-serif;
+
+    color: #ffffff;
+    line-height: 1.6;
+    background: url("../images/fon_3.jpg") repeat;
+    background-size: auto;
+}
+
+.header {
+    text-align: center;
+    margin: 2%;
+    font-size: 5vmax;
+}
+
+.textarea {
+    box-shadow: 0 0 2vh 1vh rgb(20, 20, 20);
+    position: absolute;
+    min-width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10%;
+    text-align: left;
+    background: rgb(55, 55, 55);
+}

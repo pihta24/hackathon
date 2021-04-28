@@ -1,0 +1,55 @@
+body {
+    font-family: "Exo 2", sans-serif;
+
+    color: #ffffff;
+    line-height: 1.6;
+    background: url("../images/fon_3.jpg") repeat;
+    background-size: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.txt textarea{
+    font-size: 2vh;
+    margin-left: 5vw;
+    width: 30vw;
+    height: 5vh;
+    margin-bottom: 5vh;
+    vertical-align: top;
+    background: rgb(55, 55, 55);
+    color: rgb(255, 255, 255);
+    font-family: "Exo 2", sans-serif;
+    resize: none;
+}
+
+.but {
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: white 0 0 0;
+    padding: 1vw 1.5vw;
+    margin-top: 5vh;
+    margin-left: 65vw;
+    text-decoration: none;
+    color: white;
+    opacity: .4;
+
+    font-size: 1.4vw;
+    font-weight: bold;
+    background: rgb(220, 20, 60);
+    text-transform: uppercase;
+}
+.but:hover {
+    opacity: 1;
+    transition: 0.4s;
+}
+
+.q {
+    position: absolute;
+    font-family: "Exo 2", sans-serif;
+    resize: none;
+}
+

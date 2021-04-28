@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hak.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>For Hakaton</title>
+</head>
+<body>
+    <div class="contain">
+        <div class="begin" style="height: 1040px">
+            <h1 style="color: crimson; font-size: 120px;">Хакатон</h1>
+            <div class="covered-begin">
+                <img src="static/imgs/6.png" alt="" height="400px">
+                <img src="static/imgs/4.png" alt="" height="400px">
+            </div>
+            <p  style="color: crimson;" class="text big">Регистрация</p>
+        </div>
+        <section class="menu">
+            <div class="menu__panel">
+                <div class="menu__panel__buttons">
+                    <a class="link" href="/cabinet/">Личный кабинет</a>
+                    <a class="link" href="https://mos.ru" target="_blank">Оценки</a>
+                    <a class="link" href="https://1502.mskobr.ru/novosti" target="_blank">Новости</a>
+                    <a class="link" href="https://1502.mskobr.ru" target="_blank">Оф Сайт</a>
+                </div>
+                <div class="menu__panel__login">
+                    <a id="" href="/">Выйти</a>
+                </div>
+            </div>
+        </section>
+        <div class="main-back">
+            <h1 class="zero">Основа всех подстраниц</h1>
+        </div>
+        <div class="colors">
+            <h1 class="first">Основные цвета</h1>
+            <div class="covered">
+                <div class="crimson color"></div>
+                <p>-</p>
+                <p class="near">rgb(220, 20, 60)</p>
+            </div>
+            <div class="covered">
+                <div class="black color"></div>
+                <p>-</p>
+                <p class="near">rgb(55, 55, 55)</p>
+            </div>
+            <div class="covered">
+                <div class="blue color"></div>
+                <p>-</p>
+                <p class="near">rgb(21, 200, 255)</p>
+            </div>
+            <div class="covered">
+                <div class="white color"></div>
+                <p>-</p>
+                <p class="near">rgb(255, 255, 255)</p>
+            </div>
+        </div>
+        <div class="main-back">
+            <h1>Основной шрифт</h1>
+            <div class="covered">
+                <p class="big green">'Exo 2'</p>
+                <p class="big purple">sans-serif</p>
+            </div>
+        </div>
+        <div class="colors">
+            <h1 class="end">Задача:</h1>
+            <p class="text rrr">Сделать web-приложение на django<br>для оповещения учащихся школы 1502<br>через информационный портал 1502энергия.рф<br>по макету</p>
+        </div>
+        <img src="static/imgs/maket.png" alt="" style="width: 100%;">
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    let b = 700
+    $(document).ready(function () {
+            $(window).scroll(function () {
+                console.log($(window).scrollTop())
+                if ($(window).scrollTop() > (200 + b)) {
+                    $('.crimson').addClass("animateX");
+                    $('.crimson ~ p.near').addClass("animateXopp");
+                }
+                if ($(window).scrollTop() > (350 + b)) {
+                    $('.black').addClass("animateX");
+                    $('.black ~ p.near').addClass("animateXopp");
+                }
+                if ($(window).scrollTop() > (450 + b)) {
+                    $('.blue').addClass("animateX");
+                    $('.blue ~ p.near').addClass("animateXopp");
+                }
+                if ($(window).scrollTop() > (550 + b)) {
+                    $('.white').addClass("animateX");
+                    $('.white ~ p.near').addClass("animateXopp");
+                }
+                if ($(window).scrollTop() > (1100 + b)) {
+                    $('.main-back h1').addClass("animateY");
+                }
+                if ($(window).scrollTop() > (1200 + b)) {
+                    $('p.green').addClass("animateX");
+                    $('p.purple').addClass("animateXopp");
+                }
+                if ($(window).scrollTop() > (1800 + b)) {
+                    $('.colors h1.end').addClass("animateY");
+                }
+                if ($(window).scrollTop() > (1900 + b)) {
+                    $('.colors p.rrr').addClass("bebe");
+                }
+                if ($(window).scrollTop() > (100 + b)) {
+                    $('.colors h1.first').addClass("animateY");
+                }
+                if ($(window).scrollTop() > b - 200) {
+                    $('.zero').addClass("animateY");
+                }
+            });
+        });
+</script>
+</body>
+</html>

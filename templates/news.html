@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Новость</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300&display=swap" rel="stylesheet">
+	{% load static %}
+    <link rel="stylesheet"
+          href={% static "css/new.css"%}>
+	<script src={% static "node_modules/jquery/dist/jquery.js" %}></script>
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com">
+</head>
+<body>
+<header id="heading" class="header">
+</header>
+<div id="textar" class="textarea">
+</div>
+<script>
+	$.getJSON("api/news/{{ id }}")
+		.done((data) => {
+		    $("#heading").html(data["head"])
+			$("#textar").html(data["text"])
+		})
+		.fail(() => {$("#heading").html("Данной новости не существует")})
+</script>
+</body>
+</html>
